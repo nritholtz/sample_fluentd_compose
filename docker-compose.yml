@@ -1,0 +1,11 @@
+log:
+  image: fluent/fluentd
+web:
+  image: ksdn117/test-page
+  log_driver: fluentd
+  log_opt:
+    fluentd-address: "log:24224"
+  links:
+    - log
+  ports:
+    - "80:80"
